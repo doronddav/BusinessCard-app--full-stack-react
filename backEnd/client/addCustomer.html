@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <style>
+        input[type=text], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        div {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New Customer</title>
+</head>
+<body>
+
+  <div class="w3-container w3-teal">
+    <h1>Register New Customer</h1>
+  </div>
+  <br>
+  <div class="w3-container">
+    <label for="name1"> Name</label>
+    <input type="text" id="name1" name="name1" placeholder="Your name..">
+
+    <label for="email"> Email</label>
+    <input type="text" id="email" name="email" placeholder="Your email..">
+
+    
+    <label for="Password"> Password</label>
+    <input type="text" id="password" name="password" placeholder="Your password..">
+
+   
+    <label for="businessaccount"> Is business Account</label>
+    <input type="checkbox"  id="businessaccount" name="businessaccount">
+
+     <br>
+     <hr>
+    <input type="button" onclick="send();"
+     style="font-size: 30px;" value="Register Customer"  />
+  </div>
+
+    
+    <script>
+         function send(){
+            const data= {
+                name:name1.value,
+                email:email.value,
+                password:password.value,
+                isBusinessAccount:businessaccount.checked
+            };
+
+            fetch('http://localhost:3000/customers/register',
+            {
+                body:JSON.stringify(data),
+                method:'post',
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            }
+             )
+             .then(x=>x.json()
+             .then(x=>alert(x )))
+             .catch(error=>alert(error ));
+         }
+        </script>
+</body>
+</html>

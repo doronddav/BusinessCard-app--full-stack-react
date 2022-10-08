@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .card {
+            display: inline-block;
+            margin: 5px;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          transition: 0.3s;
+          width: 15%;
+        }
+        
+        .card:hover {
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        
+        .container {
+          padding: 2px 16px;
+        }
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Customers</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+</head>
+<body>
+    <div class="w3-container w3-teal">
+        <h1>Our Customers</h1>
+      </div>
+      <br>
+      <div id="container" class="w3-container">
+         
+      </div>
+
+      <script>
+         fetch('http://localhost:3000/customers')
+         .then(x=>x.json())
+         .then(data=> drawCustomers(data));
+
+         function drawCustomers(customers){
+            for(let cust of customers)
+            {
+                container.innerHTML+=`
+                    <div class="card">
+                     <img src="/client/img_avatar.png" alt="Avatar" style="width:100%">
+                         <div class="container">
+                            <h4><b>${cust.name}</b></h4> 
+                             <p>${cust.email}</p>
+                             <b>${cust.isBusinessAccount?'Business Account':'Regular Account'}</b> 
+                        </div>
+                    </div>
+                `;
+            }
+         }
+      </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .card {
+            display: inline-block;
+            margin: 5px;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          transition: 0.3s;
+          width: 15%;
+        }
+        
+        .card:hover {
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+        
+        .container {
+          padding: 2px 16px;
+        }
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Cards</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+
+</head>
+<body>
+    <div class="w3-container w3-teal">
+        <h1>Our Cards</h1>
+      </div>
+      <br>
+      <div id="container" class="w3-container">
+         
+      </div>
+
+      <script>
+         fetch('http://localhost:3000/cards')
+         .then(x=>x.json())
+         .then(data=> drawCards(data));
+
+         function drawCards(cards){
+            for(let card of cards)
+            {
+                container.innerHTML+=`
+                    <div class="card">
+                     <img src="${card.businessImage}" alt="Avatar" style="width:100%">
+                         <div class="container">
+                            <h4><b>${card.businessName}</b></h4> 
+                             <p>${card.businessDescription}</p>
+                             <b>${card.businessPhone}</b>
+                             <p>${card.businessAddress} </p> 
+                        </div>
+                    </div>
+  
+                `;
+            }
+         }
+      </script>
+</body>
+</html>
