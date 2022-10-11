@@ -1,9 +1,11 @@
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import Button from "../button/button";
 
 const CardForm = ({
   handleCreateCard,
+  handleUpdate,
   handleChangeName,
   handleChangeDescription,
   handleChangeAdress,
@@ -13,7 +15,7 @@ const CardForm = ({
   const { cardToUpdate } = useContext(UserContext);
   console.log(cardToUpdate);
   return (
-    <form onSubmit={handleCreateCard}>
+    <form onSubmit={cardToUpdate === "" ? handleCreateCard : handleUpdate}>
       <div className="form-floating mb-3">
         <input
           type="businessName"
@@ -87,9 +89,8 @@ const CardForm = ({
           {cardToUpdate === "" ? "Business Image" : cardToUpdate.businessImage}
         </label>
       </div>
-      <button className="btn btn-primary">
-        {cardToUpdate === "" ? "Create card" : "Update Card"}
-      </button>
+
+      <Button>{cardToUpdate === "" ? "Create card" : "Update Card"}</Button>
     </form>
   );
 };

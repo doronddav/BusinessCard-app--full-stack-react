@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 const UpdateBtn = ({ card }) => {
   const { cardToUpdate, setCardToUpdate } = useContext(UserContext);
   const navigate = useNavigate();
-  console.log(card);
 
   const handleUpdateCard = () => {
     setCardToUpdate(card);
+    console.log(card);
     navigate("/update");
   };
 

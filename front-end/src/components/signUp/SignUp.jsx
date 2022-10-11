@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../button/button";
 
 const SignUp = () => {
   const [users, setUsers] = useState({
@@ -47,7 +48,7 @@ const SignUp = () => {
           <input
             type="email"
             name="email"
-            className="input-size form-control"
+            className="input-size form-control my-2"
             id="floatingInput"
             placeholder="name@example.com"
             onChange={handleChangeEmail}
@@ -59,7 +60,7 @@ const SignUp = () => {
           <input
             type="name"
             name="name"
-            className="form-control"
+            className="form-control my-2"
             id="floatingName"
             placeholder="name"
             onChange={handleChangeName}
@@ -70,7 +71,7 @@ const SignUp = () => {
           <input
             type="password"
             name="password"
-            className="form-control"
+            className="form-control my-2"
             id="floatingPassword"
             placeholder="Password"
             onChange={handleChangePassword}
@@ -78,7 +79,7 @@ const SignUp = () => {
           <label htmlFor="floatingPassword">Password</label>
         </div>
 
-        <button className="btn btn-primary">Submit</button>
+        <Button buttonType="regularForm">Submit</Button>
       </form>
     </div>
   );

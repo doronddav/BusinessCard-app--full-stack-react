@@ -1,4 +1,4 @@
-//import ReactDOM from "react-dom/client";
+import { useEffect, useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -11,8 +11,18 @@ import Home from "./components//home/Home";
 import CustomerPage from "./components/CustomerPage";
 import CompanyPage from "./components/UsersCompany/CompanyPage";
 import UpdateCard from "./components/updateCardPage/UpdateCard";
+import { UserContext } from "./context/UserContext";
+import PageNotFound from "./components/page-not-found/PageNotFound";
 
 function App() {
+  const { setIsLogdeIn } = useContext(UserContext);
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("data");
+    if (loggedInUser) {
+      setIsLogdeIn(true);
+    }
+  }, []);
   return (
     <BrowserRouter>
       <Navbar />
@@ -27,6 +37,7 @@ function App() {
           <Route exact path="/customerPage" element={<CustomerPage />} />
           <Route exact path="/usercompany" element={<CompanyPage />} />
           <Route exact path="/update" element={<UpdateCard />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </BrowserRouter>

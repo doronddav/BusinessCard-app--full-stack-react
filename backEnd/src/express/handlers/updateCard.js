@@ -3,7 +3,9 @@ async function updateCard(req, res) {
   const cardID = req.query.cardid;
   const userID = req.userID;
   if (!cardID) {
-    return res.status(400).json("id not found");
+    return (
+      res.status(400).json("id not found"), console.log("error here!!!!!!")
+    );
   }
 
   const result = await operations.updateOneCard(cardID, userID, req.body);

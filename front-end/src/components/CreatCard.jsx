@@ -21,6 +21,9 @@ function CreatCard() {
 
     const card = { bisCard };
 
+    console.log(bisCard);
+    console.log(card);
+
     console.log(card.bisCard);
     const requestMethods = {
       method: "POST",

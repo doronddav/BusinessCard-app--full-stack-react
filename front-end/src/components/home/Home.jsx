@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 
 const Home = () => {
-  const { isLogdeIn } = useContext(UserContext);
-  console.log(isLogdeIn);
+  const { isLogdeIn, setIsLogdeIn } = useContext(UserContext);
+
   const navigate = useNavigate();
+
   let seeCards = () => {
     isLogdeIn === true
       ? navigate("/usercompany")
