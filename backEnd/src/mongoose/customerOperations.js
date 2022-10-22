@@ -18,6 +18,7 @@ async function signInCustomer(email, password) {
 
     const result = bcryptjs.compareSync(password, customerFromDB.password);
     if (result) {
+      console.log(customerFromDB);
       return customerFromDB;
     }
     return null;

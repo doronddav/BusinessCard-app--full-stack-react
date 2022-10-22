@@ -1,14 +1,14 @@
 import { useEffect, useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 
 import SignUp from "./components/signUp/SignUp";
-import SignUpBusiness from "./components/SignUpBusiness";
-import SignIn from "./components/SignIn";
-import CreatCard from "./components/CreatCard";
+import SignUpBusiness from "./components/signup-business/SignUpBusiness";
+import SignIn from "./components/sign-in/SignIn";
+import CreatCard from "./components/create-card/CreatCard";
 import Home from "./components//home/Home";
-import CustomerPage from "./components/CustomerPage";
+import CustomerPage from "./components/customer-page/CustomerPage";
 import CompanyPage from "./components/UsersCompany/CompanyPage";
 import UpdateCard from "./components/updateCardPage/UpdateCard";
 import { UserContext } from "./context/UserContext";

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Button from "./button/button";
+import { useNavigate } from "react-router-dom";
+import Button from "../button/button";
 
 const SignUpBusiness = () => {
   const [bisUsers, setBisUsers] = useState({
@@ -8,6 +9,7 @@ const SignUpBusiness = () => {
     password: "",
     isBusinessAccount: true,
   });
+  const navigate = useNavigate();
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     //validation
@@ -25,8 +27,9 @@ const SignUpBusiness = () => {
         "http://localhost:8000/customers/register",
         requestOptions
       );
-      if (response.ok) console.log(response);
-      else {
+      if (response.ok) {
+        navigate("signin");
+      } else {
         console.log("user already registered");
       }
     } catch (err) {
@@ -52,7 +55,7 @@ const SignUpBusiness = () => {
           <input
             type="email"
             name="email"
-            className="form-control my-2"
+            className="form-control my-2 input-box"
             id="floatingInput"
             placeholder="name@example.com"
             onChange={handleChangeEmail}
@@ -64,7 +67,7 @@ const SignUpBusiness = () => {
           <input
             type="name"
             name="name"
-            className="form-control my-2"
+            className="form-control my-2 input-box"
             id="floatingName"
             placeholder="name"
             onChange={handleChangeName}
@@ -75,7 +78,7 @@ const SignUpBusiness = () => {
           <input
             type="password"
             name="password"
-            className="form-control my-2"
+            className="form-control my-2 input-box"
             id="floatingPassword"
             placeholder="Password"
             onChange={handleChangePassword}

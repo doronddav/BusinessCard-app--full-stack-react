@@ -6,7 +6,9 @@ async function signinCustomer(req, res) {
   if (error) return res.status(400).json(error.details[0].message);
   const { email, password } = req.body;
   const retVal = await operations.signInCustomer(email, password);
+  console.log("retval!!!!!!:", retVal);
   if (!retVal) return res.status(500).json("didnt find customer");
+  const { name } = retVal;
   const token = jsonwebtoken.sign(
     {
       customerid: retVal._id,
@@ -24,6 +26,7 @@ async function signinCustomer(req, res) {
       token,
       id,
       isBusinessAccount,
+      name,
     },
   });
 }

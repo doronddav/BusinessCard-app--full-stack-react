@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import LogOut from "./logOut/LogOut";
+import LogOut from "../logOut/LogOut";
 import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 function Navbar() {
   const { isLogdeIn } = useContext(UserContext);
@@ -39,14 +39,16 @@ function Navbar() {
               </li>
             </>
           ) : (
-            <li className=" px-1 nav-item">
-              <Link to="/customerPage">Customer Page</Link>
-            </li>
+            <>
+              <li className=" px-1 nav-item">
+                <Link to="/customerPage">Customer Page</Link>
+              </li>
+              <li className="px-1 nav-item">
+                <Link to="/cards/create">Create Card</Link>
+              </li>
+            </>
           )}
 
-          <li className="px-1 nav-item">
-            <Link to="/cards/create">Create Card</Link>
-          </li>
           {isLogdeIn === false ? (
             <li className="px-1 nav-item">
               <Link to="/signin">Log In</Link>

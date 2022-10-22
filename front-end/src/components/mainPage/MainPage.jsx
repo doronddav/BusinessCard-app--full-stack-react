@@ -1,6 +1,6 @@
 import { Row } from "reactstrap";
 import { useState, useEffect } from "react";
-import Card from "./card/Card";
+import Card from "../card/Card";
 
 const MainPage = () => {
   const [allCards, setAllCards] = useState([

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "reactstrap";
-import CardForm from "./cardForm/CardForm";
+import CardForm from "../cardForm/CardForm";
 
 function CreatCard() {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function CreatCard() {
         "http://localhost:8000/cards/create",
         requestMethods
       );
-      if (response.ok) navigate("/cusomerPage");
+      if (response.ok) navigate("/customerPage");
       else {
         console.log(response.json());
       }

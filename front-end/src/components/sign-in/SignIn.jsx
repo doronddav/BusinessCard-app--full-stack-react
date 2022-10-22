@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
 function SignIn() {
   //Signin
@@ -16,10 +16,9 @@ function SignIn() {
   };
   const handleSubmitSignInForm = async (e) => {
     e.preventDefault();
-    //validation
 
-    //fetch
     const loginData = { userData };
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,7 +29,7 @@ function SignIn() {
         "http://localhost:8000/customers/signin",
         requestOptions
       );
-      //console.log(response.json());
+
       const resJson = await response.json();
       console.log(resJson);
 

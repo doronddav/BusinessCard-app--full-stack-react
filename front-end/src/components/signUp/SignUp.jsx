@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../button/button";
+import "./sign-up.style.scss";
 
 const SignUp = () => {
   const [users, setUsers] = useState({
@@ -8,6 +10,7 @@ const SignUp = () => {
     password: "",
     isBusinessAccount: false,
   });
+  const navigate = useNavigate();
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     //validation
@@ -25,7 +28,9 @@ const SignUp = () => {
         "http://localhost:8000/customers/register",
         requestOptions
       );
-      console.log(response);
+      if (response.ok) {
+        navigate("signin");
+      }
     } catch (err) {
       console.log(err.message);
     }
@@ -42,9 +47,10 @@ const SignUp = () => {
   };
 
   return (
-    <div className="my-4 ">
+    <div className="my-4 form-container ">
       <form onSubmit={handleSubmitForm}>
-        <div className="form-floating ">
+        <h3>SIGN UP</h3>
+        <div className="form-floating input-box ">
           <input
             type="email"
             name="email"
@@ -56,7 +62,7 @@ const SignUp = () => {
           <label htmlFor="floatingInput">Email address</label>
         </div>
 
-        <div className="form-floating">
+        <div className="form-floating input-box">
           <input
             type="name"
             name="name"
@@ -67,7 +73,7 @@ const SignUp = () => {
           />
           <label htmlFor="floatingName">User Name</label>
         </div>
-        <div className="form-floating">
+        <div className="form-floating input-box">
           <input
             type="password"
             name="password"
