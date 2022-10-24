@@ -1,10 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik+Glitch&display=swap");
+
 .container {
   text-align: center;
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik+Glitch&display=swap");
+
+  font-family: "Montserrat", sans-serif;
 
   h3 {
     font-size: 70px;
     text-decoration: underline;
     margin: 50px;
+    // font-family: "Montserrat", sans-serif;
   }
   h5,
   svg {
@@ -16,4 +22,7 @@
   button {
     display: none;
   }
+}
+
+.displayCard {
 }

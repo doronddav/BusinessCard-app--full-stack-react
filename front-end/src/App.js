@@ -1,5 +1,6 @@
 import { useEffect, useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Navbar from "./components/navbar/Navbar";
 
@@ -25,6 +26,18 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="top-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Navbar />
 
       <div className="container">

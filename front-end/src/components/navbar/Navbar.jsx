@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import LogOut from "../logOut/LogOut";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+// import { ReactComponent as Logo } from "../../assets./logo.svg";
 
 function Navbar() {
+  const items = JSON.parse(localStorage.getItem("data"));
+
   const { isLogdeIn } = useContext(UserContext);
   console.log(isLogdeIn);
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <Link className=" ps-3 text-bg-dark navbar-brand" to="/">
-        Home
+        CooperationApp
       </Link>
       Navbar
       <button
@@ -29,7 +32,7 @@ function Navbar() {
       >
         <ul className="navbar-nav">
           <li className="nav-item active"></li>
-          {isLogdeIn === false ? (
+          {isLogdeIn === false && (
             <>
               <li className=" px-1 nav-item">
                 <Link to="/signup">Signup</Link>
@@ -37,8 +40,13 @@ function Navbar() {
               <li className=" px-1 nav-item">
                 <Link to="/SignUpBusines">Sign Up Business</Link>
               </li>
+              <li className="px-1 nav-item">
+                <Link to="/signin">Log In</Link>
+              </li>
             </>
-          ) : (
+          )}
+
+          {items?.data.isBusinessAccount === true && (
             <>
               <li className=" px-1 nav-item">
                 <Link to="/customerPage">Customer Page</Link>
@@ -46,14 +54,13 @@ function Navbar() {
               <li className="px-1 nav-item">
                 <Link to="/cards/create">Create Card</Link>
               </li>
+              <li className="px-1 nav-item">
+                <LogOut />
+              </li>
             </>
           )}
 
-          {isLogdeIn === false ? (
-            <li className="px-1 nav-item">
-              <Link to="/signin">Log In</Link>
-            </li>
-          ) : (
+          {items?.data.isBusinessAccount === false && (
             <li className="px-1 nav-item">
               <LogOut />
             </li>

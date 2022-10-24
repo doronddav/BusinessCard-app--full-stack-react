@@ -1,4 +1,3 @@
-import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
@@ -54,10 +53,14 @@ const Home = () => {
       ? navigate("/usercompany")
       : alert("Only Members Can see Bussines Cards");
   };
+
+  let goToSignInMumber = () => {
+    navigate("/SignUpBusines");
+  };
   return (
     <div className="container">
       <h3>Users Card</h3>
-      {isLogdeIn === true && items.data.isBusinessAccount === true ? (
+      {isLogdeIn === true && items?.data.isBusinessAccount === true ? (
         <>
           <h5>HELLO {items.data.name.toUpperCase()}</h5>
           <p>Now you can see other business to make cooperation with.</p>
@@ -69,7 +72,15 @@ const Home = () => {
       ) : (
         <>
           <h5>Become bussiness and Make Your Own Business Card</h5>
-          <Card card={localBusinessCard} />
+          <div className="displayCard">
+            <Card card={localBusinessCard} />
+          </div>
+          {
+            <Button onClick={goToSignInMumber}>
+              {" "}
+              Become a Business account
+            </Button>
+          }
         </>
       )}
     </div>

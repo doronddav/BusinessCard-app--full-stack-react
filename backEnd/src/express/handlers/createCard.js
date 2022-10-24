@@ -3,6 +3,7 @@ const operations = require("../../mongoose/cardOperations");
 
 async function createCard(req, res) {
   const result = validateCreateCard(req.body);
+
   if (result.error)
     return res.status(400).json({
       status: "fail",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const DeleteCard = ({ card }) => {
   const handleDelete = async (e) => {
@@ -26,11 +26,7 @@ const DeleteCard = ({ card }) => {
     }
   };
 
-  return (
-    <button id={card.id} onClick={handleDelete}>
-      x
-    </button>
-  );
+  return <button onClick={handleDelete}>x</button>;
 };
 
 export default DeleteCard;

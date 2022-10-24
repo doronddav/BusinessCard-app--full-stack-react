@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Button from "../button/button";
+import SignUpForm from "../signUpForm/SignUpForm";
 import "./sign-up.style.scss";
 
 const SignUp = () => {
@@ -11,6 +13,7 @@ const SignUp = () => {
     isBusinessAccount: false,
   });
   const navigate = useNavigate();
+  let title = "SIGN UP";
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     //validation
@@ -29,7 +32,8 @@ const SignUp = () => {
         requestOptions
       );
       if (response.ok) {
-        navigate("signin");
+        toast("sign up succesfully");
+        navigate("/signin");
       }
     } catch (err) {
       console.log(err.message);
@@ -47,47 +51,13 @@ const SignUp = () => {
   };
 
   return (
-    <div className="my-4 form-container ">
-      <form onSubmit={handleSubmitForm}>
-        <h3>SIGN UP</h3>
-        <div className="form-floating input-box ">
-          <input
-            type="email"
-            name="email"
-            className="input-size form-control my-2"
-            id="floatingInput"
-            placeholder="name@example.com"
-            onChange={handleChangeEmail}
-          />
-          <label htmlFor="floatingInput">Email address</label>
-        </div>
-
-        <div className="form-floating input-box">
-          <input
-            type="name"
-            name="name"
-            className="form-control my-2"
-            id="floatingName"
-            placeholder="name"
-            onChange={handleChangeName}
-          />
-          <label htmlFor="floatingName">User Name</label>
-        </div>
-        <div className="form-floating input-box">
-          <input
-            type="password"
-            name="password"
-            className="form-control my-2"
-            id="floatingPassword"
-            placeholder="Password"
-            onChange={handleChangePassword}
-          />
-          <label htmlFor="floatingPassword">Password</label>
-        </div>
-
-        <Button buttonType="regularForm">Submit</Button>
-      </form>
-    </div>
+    <SignUpForm
+      title={title}
+      handleSubmitForm={handleSubmitForm}
+      handleChangeEmail={handleChangeEmail}
+      handleChangeName={handleChangeName}
+      handleChangePassword={handleChangePassword}
+    />
   );
 };
 

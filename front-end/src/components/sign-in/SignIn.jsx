@@ -1,6 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
+import Button from "../button/button";
+import "./sign-in.style.scss";
 
 function SignIn() {
   //Signin
@@ -32,18 +35,21 @@ function SignIn() {
 
       const resJson = await response.json();
       console.log(resJson);
-
-      localStorage.setItem("data", JSON.stringify(resJson));
+      if (resJson.status === "success") {
+        localStorage.setItem("data", JSON.stringify(resJson));
+      }
 
       //localStorage.setItem("mydog", "Nala");
       console.log(resJson);
       setIsLogdeIn(true);
+
       resJson.data.isBusinessAccount === true
         ? navigate("/customerPage")
-        : navigate("/Home");
+        : navigate("/");
     } catch (err) {
       console.log(err);
     }
+    toast("logged in succesfully");
   };
 
   return (
@@ -73,7 +79,7 @@ function SignIn() {
           <label htmlFor="floatingPassword">Password</label>
         </div>
 
-        <button className="btn btn-primary">Sign In</button>
+        <Button>Sign In</Button>
       </form>
     </div>
   );

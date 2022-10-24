@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../button/button";
+import SignUpForm from "../signUpForm/SignUpForm";
 
 const SignUpBusiness = () => {
   const [bisUsers, setBisUsers] = useState({
@@ -10,6 +11,8 @@ const SignUpBusiness = () => {
     isBusinessAccount: true,
   });
   const navigate = useNavigate();
+
+  let title = "SIGN UP BUSINESS";
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     //validation
@@ -49,45 +52,13 @@ const SignUpBusiness = () => {
 
   return (
     <>
-      <h1>sign up bussiness</h1>
-      <form onSubmit={handleSubmitForm}>
-        <div className="form-floating mb-3">
-          <input
-            type="email"
-            name="email"
-            className="form-control my-2 input-box"
-            id="floatingInput"
-            placeholder="name@example.com"
-            onChange={handleChangeEmail}
-          />
-          <label htmlFor="floatingInput">Email address</label>
-        </div>
-
-        <div className="form-floating">
-          <input
-            type="name"
-            name="name"
-            className="form-control my-2 input-box"
-            id="floatingName"
-            placeholder="name"
-            onChange={handleChangeName}
-          />
-          <label htmlFor="floatingName">User Name</label>
-        </div>
-        <div className="form-floating">
-          <input
-            type="password"
-            name="password"
-            className="form-control my-2 input-box"
-            id="floatingPassword"
-            placeholder="Password"
-            onChange={handleChangePassword}
-          />
-          <label htmlFor="floatingPassword">Password</label>
-        </div>
-
-        <Button>Submit</Button>
-      </form>
+      <SignUpForm
+        title={title}
+        handleSubmitForm={handleSubmitForm}
+        handleChangeEmail={handleChangeEmail}
+        handleChangeName={handleChangeName}
+        handleChangePassword={handleChangePassword}
+      />
     </>
   );
 };

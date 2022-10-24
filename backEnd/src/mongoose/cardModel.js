@@ -48,6 +48,7 @@ const cardSchema = mongoose.Schema({
   },
   businessImage: {
     type: String,
+    required: false,
     maxlength: [
       500,
       "A business Image must have less or equal then 500 characters",

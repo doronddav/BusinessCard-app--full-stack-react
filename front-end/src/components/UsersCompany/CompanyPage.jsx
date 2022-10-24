@@ -1,6 +1,7 @@
 import { Row } from "reactstrap";
 import { useState, useEffect } from "react";
 import Card from "../card/Card";
+import { useLocation } from "react-router-dom";
 
 const MainPage = () => {
   const [allCards, setAllCards] = useState([

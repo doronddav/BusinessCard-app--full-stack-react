@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import CardForm from "../cardForm/CardForm";
 
 const UpdateCard = () => {
-  const { cardToUpdate } = useContext(UserContext);
+  const { cardToUpdate, setCardToUpdate } = useContext(UserContext);
   console.log(cardToUpdate);
 
   const userData = JSON.parse(localStorage.getItem("data")).data;
   const { token } = userData;
   const { userId } = userData;
-
-  console.log(token);
+  const navigate = useNavigate();
   const [bisCard, setBisCard] = useState(cardToUpdate);
 
   const handleUpdate = async (e) => {
@@ -27,6 +27,8 @@ const UpdateCard = () => {
         `http://localhost:8000/cards/updatecard?cardid=${cardToUpdate._id}`,
         requestOptions
       );
+      navigate("/customerPage");
+      setCardToUpdate("");
       console.log(res);
     } catch (error) {
       console.log(error);

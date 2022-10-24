@@ -13,7 +13,7 @@ const CardForm = ({
   handleChangeImg,
 }) => {
   const { cardToUpdate } = useContext(UserContext);
-  console.log(cardToUpdate);
+  console.log("card to update:", cardToUpdate);
   return (
     <form onSubmit={cardToUpdate === "" ? handleCreateCard : handleUpdate}>
       <div className="form-floating mb-3">
@@ -29,7 +29,6 @@ const CardForm = ({
           {cardToUpdate === "" ? "Business Name" : cardToUpdate.businessName}
         </label>
       </div>
-
       <div className="form-floating mb-3">
         <input
           type="businessDescription"
@@ -45,7 +44,6 @@ const CardForm = ({
             : cardToUpdate.businessDescription}
         </label>
       </div>
-
       <div className="form-floating mb-3">
         <input
           type="businessAddress"
@@ -61,7 +59,6 @@ const CardForm = ({
             : cardToUpdate.businessAddress}
         </label>
       </div>
-
       <div className="form-floating mb-3">
         <input
           type="businessPhone"
@@ -75,7 +72,6 @@ const CardForm = ({
           {cardToUpdate === "" ? "Business Phone" : cardToUpdate.businessPhone}
         </label>
       </div>
-
       <div className="form-floating mb-3">
         <input
           type="businessImage"
@@ -89,7 +85,6 @@ const CardForm = ({
           {cardToUpdate === "" ? "Business Image" : cardToUpdate.businessImage}
         </label>
       </div>
-
       <Button>{cardToUpdate === "" ? "Create card" : "Update Card"}</Button>
     </form>
   );

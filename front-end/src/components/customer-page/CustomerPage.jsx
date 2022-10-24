@@ -23,7 +23,7 @@ const CustomerPage = () => {
           requestOptions
         );
         const resJson = await res.json();
-        const { userData } = resJson.data;
+        //const { userData } = resJson.data;
         setAllCards([...resJson.data.userCards]);
         // console.log(userData);
 
@@ -33,36 +33,36 @@ const CustomerPage = () => {
       }
     };
     getCards();
-  }, [allCards]);
+  }, []);
 
+  let cardMapModel = (num) => {
+    return (
+      <Row xs={num}>
+        {allCards.map((card) => {
+          return <Card key={card._id} card={card} />;
+        })}
+      </Row>
+    );
+  };
   return (
     <>
-      {console.log(allCards)}
-      <h4 className="pt-5  d-flex justify-content-center ">Your Cards:</h4>
-      <div className="my-4 container text-center d-flex justify-content-center">
-        <Row xs={4}>
-          {allCards.map((card) => {
-            return <Card key={card._id} card={card} />;
-          })}
-        </Row>
+      <div className=" container ">
+        {allCards.length === 0 && (
+          <button>make your first business card</button>
+        )}
+        {allCards.length > 0 && (
+          <div>
+            <h4 className="pt-5  d-flex justify-content-center ">
+              Your Cards:
+            </h4>
+            <div className="my-4 container text-center d-flex justify-content-center">
+              {allCards.length < 4 ? cardMapModel(3) : cardMapModel(4)}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
 };
-
-//   return (
-//     { allCards.length ? ( <>
-//       <h4 className="pt-5  d-flex justify-content-center ">Your Cards:</h4>
-//       <div className="my-4 container text-center d-flex justify-content-center">
-//         <Row xs={4}>
-//           {allCards.map((card) => {
-//             return <Card key={card._id} card={card} />;
-//           })}
-//         </Row>
-//       </div>
-//     </>) : ( <button>make your first business card</button>)}
-
-//   );
-// };
 
 export default CustomerPage;

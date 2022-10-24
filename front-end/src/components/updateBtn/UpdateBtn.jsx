@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import "./updateCard.style.scss";
 
 import { useNavigate } from "react-router-dom";
 

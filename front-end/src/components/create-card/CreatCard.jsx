@@ -21,10 +21,6 @@ function CreatCard() {
 
     const card = { bisCard };
 
-    console.log(bisCard);
-    console.log(card);
-
-    console.log(card.bisCard);
     const requestMethods = {
       method: "POST",
       headers: {
@@ -33,7 +29,7 @@ function CreatCard() {
       },
       body: JSON.stringify(card.bisCard),
     };
-    console.log(getUserData.token);
+
     try {
       const response = await fetch(
         "http://localhost:8000/cards/create",
@@ -59,8 +55,9 @@ function CreatCard() {
     });
   const handleChangephone = (e) =>
     setBisCard({ ...bisCard, businessPhone: e.target.value });
-  const handleChangeImg = (e) =>
+  const handleChangeImg = (e) => {
     setBisCard({ ...bisCard, businessImage: e.target.value });
+  };
 
   return (
     <div>
