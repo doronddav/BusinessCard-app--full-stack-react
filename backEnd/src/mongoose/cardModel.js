@@ -5,8 +5,8 @@ const cardSchema = mongoose.Schema({
     type: String,
     required: [true, "A business must have a name"],
     maxlength: [
-      255,
-      "A business name must have less or equal then 255 characters",
+      30,
+      "A business name must have less or equal then 30 characters",
     ],
     minlength: [5, "A business name must have less or equal then 5 characters"],
   },
@@ -14,20 +14,20 @@ const cardSchema = mongoose.Schema({
     type: String,
     required: [true, "A business must have a Description"],
     maxlength: [
-      255,
-      "A business Description must have less or equal then 255 characters",
+      60,
+      "A business Description must have less or equal then 60 characters",
     ],
     minlength: [
-      20,
-      "A business Description must have less or equal then 20 characters",
+      10,
+      "A business Description must have less or equal then 10 characters",
     ],
   },
   businessAddress: {
     type: String,
     required: [true, "A businessAddress must have a businessAddress"],
     maxlength: [
-      255,
-      "A business Address must have less or equal then 255 characters",
+      30,
+      "A business Address must have less or equal then 30 characters",
     ],
     minlength: [
       5,

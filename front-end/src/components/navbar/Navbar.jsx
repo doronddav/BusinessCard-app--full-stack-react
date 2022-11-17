@@ -16,7 +16,7 @@ function Navbar() {
       </Link>
       Navbar
       <button
-        className="navbar-toggler"
+        class="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -24,24 +24,33 @@ function Navbar() {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div
-        className=" pe-4 flex-row-reverse collapse navbar-collapse"
-        id="navbarNav"
+        className="collapse navbar-collapse pe-4 flex-row-reverse "
+        id="#navbarNav"
       >
-        <ul className="navbar-nav">
-          <li className="nav-item active"></li>
+        <ul className="navbar-nav mr-auto">
+          <li className=" nav-item active "></li>
           {isLogdeIn === false && (
             <>
               <li className=" px-1 nav-item">
-                <Link to="/signup">Signup</Link>
+                <Link to="/signup" className="text-decoration-none text-light">
+                  Signup
+                </Link>
               </li>
               <li className=" px-1 nav-item">
-                <Link to="/SignUpBusines">Sign Up Business</Link>
+                <Link
+                  to="/SignUpBusines"
+                  className="text-decoration-none text-light"
+                >
+                  Sign Up Business
+                </Link>
               </li>
               <li className="px-1 nav-item">
-                <Link to="/signin">Log In</Link>
+                <Link to="/signin" className="text-decoration-none text-light">
+                  Log In
+                </Link>
               </li>
             </>
           )}
@@ -49,20 +58,30 @@ function Navbar() {
           {items?.data.isBusinessAccount === true && (
             <>
               <li className=" px-1 nav-item">
-                <Link to="/customerPage">Customer Page</Link>
+                <Link
+                  to="/customerPage"
+                  className="text-decoration-none text-light "
+                >
+                  Customer Page
+                </Link>
               </li>
               <li className="px-1 nav-item">
-                <Link to="/cards/create">Create Card</Link>
+                <Link
+                  to="/cards/create"
+                  className="text-decoration-none text-light"
+                >
+                  Create Card
+                </Link>
               </li>
               <li className="px-1 nav-item">
-                <LogOut />
+                <LogOut className="text-decoration-none text-light" />
               </li>
             </>
           )}
 
           {items?.data.isBusinessAccount === false && (
             <li className="px-1 nav-item">
-              <LogOut />
+              <LogOut className="text-decoration-none text-light" />
             </li>
           )}
         </ul>

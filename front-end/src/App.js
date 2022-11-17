@@ -1,7 +1,7 @@
 import { useEffect, useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-
+import "react-toastify/dist/ReactToastify.min.css";
 import Navbar from "./components/navbar/Navbar";
 
 import SignUp from "./components/signUp/SignUp";
@@ -26,19 +26,19 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+      <Navbar />
       <ToastContainer
         position="top-left"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
-        closeOnClick={false}
+        closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
       />
-      <Navbar />
 
       <div className="container">
         <Routes>

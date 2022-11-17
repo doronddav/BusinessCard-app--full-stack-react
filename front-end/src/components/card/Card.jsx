@@ -7,11 +7,11 @@ const Card = ({ card }) => {
   const location = useLocation();
   console.log(location);
   return (
-    <div className=" d-flex justify-content-center size flex-column">
-      <div className="card col   ">
+    <div className=" d-flex justify-content-center  flex-column">
+      <div className="card col mt-3 card-border ">
         <img
           src={card.businessImage}
-          className="img-size rounded card-img-top w-75 h-50 mt-4 rounded-circle "
+          className="img-size rounded card-img-top mt-4 rounded-circle  "
           alt="BussinessImage"
         />
         <div className="card-body">
@@ -25,7 +25,8 @@ const Card = ({ card }) => {
           </p>
         </div>
       </div>
-      {location.path === "/customerPage" && (
+      {console.log(location)}
+      {location.pathname === "/customerPage" && (
         <span>
           <DeleteCard card={card} />
           <UpdateBtn card={card} />

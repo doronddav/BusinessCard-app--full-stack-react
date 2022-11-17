@@ -15,7 +15,7 @@ const UpdateBtn = ({ card }) => {
     navigate("/update");
   };
 
-  return <button onClick={handleUpdateCard}>Edit card</button>;
+  return <button onClick={handleUpdateCard}>Edit</button>;
 };
 
 export default UpdateBtn;
