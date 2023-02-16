@@ -13,7 +13,7 @@ const CardForm = ({
   handleChangeImg,
 }) => {
   const { cardToUpdate } = useContext(UserContext);
-  console.log("card to update:", cardToUpdate);
+ 
   return (
     <form onSubmit={cardToUpdate === "" ? handleCreateCard : handleUpdate}>
       <div className="form-floating mb-3">

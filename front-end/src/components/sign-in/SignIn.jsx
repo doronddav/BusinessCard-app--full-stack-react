@@ -34,22 +34,23 @@ function SignIn() {
       );
 
       const resJson = await response.json();
-      console.log(resJson);
+     
       if (resJson.status === "success") {
         localStorage.setItem("data", JSON.stringify(resJson));
       }
 
       //localStorage.setItem("mydog", "Nala");
-      console.log(resJson);
+     
       setIsLogdeIn(true);
 
       resJson.data.isBusinessAccount === true
         ? navigate("/customerPage")
         : navigate("/");
-    } catch (err) {
-      console.log(err);
+        toast("logged in succesfully");
+      } catch (err) {
+      toast("email or password are not correct");
+    
     }
-    toast("logged in succesfully");
   };
 
   return (

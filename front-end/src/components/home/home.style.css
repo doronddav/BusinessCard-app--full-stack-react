@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik+Glitch&display=swap");
+.container {
+  text-align: center;
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik+Glitch&display=swap");
+  font-family: "Montserrat", sans-serif;
+}
+.container h3 {
+  font-size: 70px;
+  text-decoration: underline;
+  margin: 50px;
+}
+.container h5,
+.container svg {
+  margin: 30px 0;
+}
+
+.card button {
+  display: none;
+}
+
+.card-border {
+  border: none !important;
+}/*# sourceMappingURL=home.style.css.map */

@@ -1,11 +1,10 @@
-const cardModel = require("./cardModel");
+const cardModel = require('./cardModel');
 
 async function createCardInMongoDB(cardDetails) {
   try {
-    console.log("card details!!!!!!!!!!!!!", cardDetails);
-    if (cardDetails.businessImage === "") {
+    if (cardDetails.businessImage === '') {
       cardDetails.businessImage =
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLMI5YxZE03Vnj-s-sth2_JxlPd30Zy7yEGg&usqp=CAU";
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLMI5YxZE03Vnj-s-sth2_JxlPd30Zy7yEGg&usqp=CAU';
     }
     const createdCardInDB = await new cardModel(cardDetails).save();
 

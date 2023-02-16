@@ -2,10 +2,11 @@ import { useLocation } from "react-router-dom";
 import DeleteCard from "../deleteCard/DeleteCard";
 import UpdateBtn from "../updateBtn/UpdateBtn";
 import "./Card.scss";
-
-const Card = ({ card }) => {
+import { useNavigate } from "react-router-dom";
+const Card = ({ card, handleDelete, del }) => {
+  
   const location = useLocation();
-  console.log(location);
+ 
   return (
     <div className=" d-flex justify-content-center  flex-column">
       <div className="card col mt-3 card-border ">
@@ -25,11 +26,11 @@ const Card = ({ card }) => {
           </p>
         </div>
       </div>
-      {console.log(location)}
+      
       {location.pathname === "/customerPage" && (
         <span>
-          <DeleteCard card={card} />
-          <UpdateBtn card={card} />
+          <DeleteCard card={card} del={del} />
+          <UpdateBtn card={card}  />
         </span>
       )}
     </div>

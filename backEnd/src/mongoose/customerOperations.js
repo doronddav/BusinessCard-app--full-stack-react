@@ -1,5 +1,5 @@
-const customerModel = require("./customerModel");
-const bcryptjs = require("bcryptjs");
+const customerModel = require('./customerModel');
+const bcryptjs = require('bcryptjs');
 
 async function registerCustomer(customerDetails) {
   try {
@@ -18,7 +18,6 @@ async function signInCustomer(email, password) {
 
     const result = bcryptjs.compareSync(password, customerFromDB.password);
     if (result) {
-      console.log(customerFromDB);
       return customerFromDB;
     }
     return null;

@@ -26,11 +26,11 @@ const MainPage = () => {
     try {
       const res = await fetch("http://localhost:8000/cards", requestOptions);
       const resJson = await res.json();
-      console.log(resJson.data.cards);
+     
       setAllCards([...resJson.data.cards]);
-      console.log(allCards);
+    
     } catch (err) {
-      console.log(err.message);
+      
     }
   };
 

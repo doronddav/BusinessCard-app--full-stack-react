@@ -26,11 +26,11 @@
 
 </head>
 <body>
-    <div class="w3-container w3-teal">
+    <div className="w3-container w3-teal">
         <h1>Our Customers</h1>
       </div>
       <br>
-      <div id="container" class="w3-container">
+      <div id="container" className="w3-container">
          
       </div>
 
@@ -43,9 +43,9 @@
             for(let cust of customers)
             {
                 container.innerHTML+=`
-                    <div class="card">
+                    <div className="card">
                      <img src="/client/img_avatar.png" alt="Avatar" style="width:100%">
-                         <div class="container">
+                         <div className="container">
                             <h4><b>${cust.name}</b></h4> 
                              <p>${cust.email}</p>
                              <b>${cust.isBusinessAccount?'Business Account':'Regular Account'}</b> 

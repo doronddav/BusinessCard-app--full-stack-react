@@ -30,14 +30,11 @@ const SignUpBusiness = () => {
         "http://localhost:8000/customers/register",
         requestOptions
       );
-      if (response.ok) {
-        navigate("signin");
-      } else {
-        console.log("user already registered");
-      }
+      
     } catch (err) {
-      console.log(err.message);
+      
     }
+    
   };
 
   const handleChangeEmail = (e) => {

@@ -9,8 +9,11 @@ import "./home.style.scss";
 
 const Home = () => {
   //see alll cards
-  const [allCards, setAllCards] = useState([]);
-  useEffect(() => {
+  const { isLogdeIn, setIsLogdeIn } = useContext(UserContext);
+  const { allCards, setAllCards } = useContext(UserContext);
+  // const [allCards, setAllCards] = useState([]);
+  
+
     const getCards = async () => {
       const requestOptions = {
         method: "GET",
@@ -23,20 +26,19 @@ const Home = () => {
       try {
         const res = await fetch(`http://localhost:8000/cards`, requestOptions);
         const resJson = await res.json();
-        console.log(resJson);
+       
         setAllCards([...resJson.data.userCards]);
-        //console.log(allCards);
+      
       } catch (err) {
-        console.log(err);
+     
       }
     };
-    getCards();
-  }, []);
+
+ if(isLogdeIn) getCards();
 
   //
-  const { isLogdeIn, setIsLogdeIn } = useContext(UserContext);
   const items = JSON.parse(localStorage.getItem("data"));
-  console.log(items);
+ 
 
   const navigate = useNavigate();
   const localBusinessCard = {
@@ -58,6 +60,7 @@ const Home = () => {
     navigate("/SignUpBusines");
   };
   return (
+
     <div className="container">
       <h3>Users Card</h3>
       {isLogdeIn === true && items?.data.isBusinessAccount === true ? (

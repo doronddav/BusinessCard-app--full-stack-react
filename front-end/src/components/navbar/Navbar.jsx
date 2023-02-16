@@ -8,7 +8,7 @@ function Navbar() {
   const items = JSON.parse(localStorage.getItem("data"));
 
   const { isLogdeIn } = useContext(UserContext);
-  console.log(isLogdeIn);
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <Link className=" ps-3 text-bg-dark navbar-brand" to="/">
@@ -16,7 +16,7 @@ function Navbar() {
       </Link>
       Navbar
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"

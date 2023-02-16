@@ -1,0 +1,24 @@
+img {
+  place-self: center;
+}
+
+.card {
+  box-sizing: border-box;
+}
+
+.size {
+  width: 300px;
+  height: 500px;
+  margin-bottom: 30px;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+}
+span button {
+  width: 30%;
+  height: 20% ;
+  margin: 0 5px;
+  border-radius: 20px 20px 0 0;
+}/*# sourceMappingURL=Card.css.map */

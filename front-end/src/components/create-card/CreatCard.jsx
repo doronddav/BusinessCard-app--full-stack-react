@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "reactstrap";
 import CardForm from "../cardForm/CardForm";
+import axios from 'axios';
+
 
 function CreatCard() {
   const navigate = useNavigate();
@@ -29,18 +31,25 @@ function CreatCard() {
       },
       body: JSON.stringify(card.bisCard),
     };
+    
 
     try {
-      const response = await fetch(
-        "http://localhost:8000/cards/create",
-        requestMethods
-      );
-      if (response.ok) navigate("/customerPage");
-      else {
-        console.log(response.json());
-      }
+      // const response = await fetch(
+      //   "http://localhost:8000/cards/create",
+      //   requestMethods
+      //   );
+
+      const response = await axios.post("http://localhost:8000/cards/create",card.bisCard,{
+        headers:{
+          token: getUserData.token
+        }
+      })
+
+        navigate('/customerPage')
+      
     } catch (err) {
-      console.log("!!!!", err);
+     console.log(err.response.data.result);
+     alert(err.response.data.result);
     }
   };
   const handleChangeName = (e) =>

@@ -5,7 +5,7 @@ import CardForm from "../cardForm/CardForm";
 
 const UpdateCard = () => {
   const { cardToUpdate, setCardToUpdate } = useContext(UserContext);
-  console.log(cardToUpdate);
+ 
 
   const userData = JSON.parse(localStorage.getItem("data")).data;
   const { token } = userData;
@@ -21,7 +21,7 @@ const UpdateCard = () => {
       headers: { "Content-Type": "application/json", token: token },
       body: JSON.stringify(bisCard),
     };
-    console.log(bisCard);
+  
     try {
       const res = await fetch(
         `http://localhost:8000/cards/updatecard?cardid=${cardToUpdate._id}`,
@@ -29,9 +29,9 @@ const UpdateCard = () => {
       );
       navigate("/customerPage");
       setCardToUpdate("");
-      console.log(res);
+    
     } catch (error) {
-      console.log(error);
+    
     }
   };
 

@@ -11,7 +11,7 @@ const UpdateBtn = ({ card }) => {
 
   const handleUpdateCard = () => {
     setCardToUpdate(card);
-    console.log(card);
+   
     navigate("/update");
   };
 

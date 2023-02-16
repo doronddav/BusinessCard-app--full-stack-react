@@ -1,11 +1,11 @@
-const joi = require("joi");
+const joi = require('joi');
 
 const myCardObject = {
-  businessName: joi.string().required().min(5).max(30),
+  businessName: joi.string().required().min(0).max(30),
   businessDescription: joi.string().required().min(10).max(60),
-  businessAddress: joi.string().required().min(5).max(30),
-  businessPhone: joi.string().required().min(9).max(14),
-  businessImage: joi.string().allow("").max(500),
+  businessAddress: joi.string().required().min(0).max(30),
+  businessPhone: joi.string().required().min(0).max(14),
+  businessImage: joi.string().allow('').max(500),
   userId: joi.string(),
 };
 

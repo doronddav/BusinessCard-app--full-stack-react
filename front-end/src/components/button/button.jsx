@@ -1,4 +1,4 @@
-import "./button.style.scss";
+import "./button.style.css";
 
 const BUTTON_TYPE_CLASSES = {
   regularForm: "regularForm",
